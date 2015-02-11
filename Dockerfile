@@ -4,7 +4,7 @@ FROM ubuntu
 #COPY . /src
 
 RUN apt-get update
-RUN apt-get install -y npm git
+RUN apt-get install -y npm openssh-server
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 #RUN cd /src
