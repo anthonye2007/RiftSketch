@@ -1,3 +1,48 @@
+var shim = function(){
+    console.log("in shim");
+        var isFunction = function(o) {
+          return typeof o == 'function';
+        };
+
+        var bind,
+          slice = [].slice,
+          proto = Function.prototype,
+          featureMap;
+
+        featureMap = {
+          'function-bind': 'bind'
+        };
+
+        function has(feature) {
+          var prop = featureMap[feature];
+          return isFunction(proto[prop]);
+        }
+
+        // check for missing features
+	console.log('before bind');
+        if (!has('function-bind')) {
+          // adapted from Mozilla Developer Network example at
+          // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind
+          bind = function bind(obj) {
+            console.log('in bind');
+            var args = slice.call(arguments, 1),
+              self = this,
+              nop = function() {
+              },
+              bound = function() {
+                return self.apply(this instanceof nop ? this : (obj || {}), args.concat(slice.call(arguments)));
+              };
+            nop.prototype = this.prototype || {}; // Firefox cries sometimes if prototype is undefined
+            bound.prototype = new nop();
+            return bound;
+          };
+          proto.bind = bind;
+        }
+};
+shim();
+
+
+
 require.config({
   waitSeconds: 30,
   baseUrl: '',
@@ -57,6 +102,10 @@ function (
 
       var setupVideoPassthrough = function () {
         navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+	if (!navigator.getUserMedia) {
+	  // getUserMedia not implemented in phantomjs
+          return;
+	}
         navigator.getUserMedia(
           {video: true},
           function (stream) {
@@ -122,7 +171,7 @@ function (
         this.riftSandbox.render();
       };
 
-      var spinNumberAndKeepSelection = function (direction, amount) {
+      /*var spinNumberAndKeepSelection = function (direction, amount) {
         var start = this.domTextArea.selectionStart;
         $scope.sketch.files[0].spinNumberAt(start, direction, amount);
         if (!$scope.$$phase) { $scope.$apply(); }
@@ -135,6 +184,7 @@ function (
         if (!$scope.$$phase) { $scope.$apply(); }
         this.domTextArea.selectionStart = this.domTextArea.selectionEnd = start;
       }.bind(this);
+	*/
 
       this.handStart = this.handCurrent = null;
       this.altPressed = this.shiftPressed = false;
