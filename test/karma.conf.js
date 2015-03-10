@@ -18,7 +18,8 @@ module.exports = function(config) {
       'test/main.js',
       {pattern: 'js/**/*.js', included: false},
       {pattern: 'test/spec/**/*.js', included: false},
-      {pattern: 'bower_components/**/*.js', included: false}
+      {pattern: 'bower_components/**/*.js', included: false},
+      {pattern: 'lib/**/*.js', included: false},
     ],
 
 
@@ -63,6 +64,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   });
 };

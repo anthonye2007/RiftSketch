@@ -17,26 +17,29 @@ require.config({
   baseUrl: '/base',
 
   paths: {
-    'angularSampleApp': '/base/app/scripts/app',
+    leap: 'lib/leap-0.6.3',
+    oauth: 'bower_components/oauth-js/dist/oauth',
+    lodash: 'bower_components/lodash/dist/lodash',
+    mousetrap: 'lib/mousetrap',
+    Three: 'lib/ThreeJS/Three',
+    VRControls: 'lib/VRControls',
+    VREffect: 'lib/VREffect',
+    RiftSandbox: 'js/RiftSandbox',
+    TextArea: 'js/TextArea',
+    File: 'js/File',
+    Sketch: 'js/Sketch',
     'angularMocks': '/base/bower_components/angular-mocks/angular-mocks',
-    'angular-animate': '/base/bower_components/angular-animate/angular-animate',
-    'angular-cookies': '/base/bower_components/angular-cookies/angular-cookies',
-    'angular-resource': '/base/bower_components/angular-resource/angular-resource',
-    'angular-route': '/base/bower_components/angular-route/angular-route',
-    'angular-sanitize': '/base/bower_components/angular-sanitize/angular-sanitize',
-    'angular-touch': '/base/bower_components/angular-touch/angular-touch',
     'angular': '/base/bower_components/angular/angular'
   },
 
   shim: {
     'angular': { exports: 'angular' },
     'angularMocks': { deps: ['angular'] },
-    'angular-animate': { deps: ['angular'] },
-    'angular-resource': { deps: ['angular'] },
-    'angular-route': { deps: ['angular'] },
-    'angular-sanitize': { deps: ['angular'] },
-    'angular-touch': { deps: ['angular'] },
-    'angular-cookies': { deps: ['angular'] }
+    leap: {exports: 'Leap'},
+    oauth: {exports: 'OAuth'},
+    Three: {exports: 'THREE'},
+    VRControls: {deps: ['Three']},
+    VREffect: {deps: ['Three']}
   },
 
   // dynamically load all test files
