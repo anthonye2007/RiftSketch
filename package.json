@@ -13,5 +13,10 @@
   "scripts": {
     "test": "node_modules/karma/bin/karma start test/karma.conf.js",
     "pretest": "node_modules/jshint/bin/jshint js/"
+  },
+  "jshintConfig": {
+    "bitwise": true,
+    "curly": true,
+    "maxdepth": 3
   }
 }
