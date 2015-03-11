@@ -4,7 +4,7 @@ define(['angular', 'angularMocks', 'RiftSketch'], function (angular, mocks, rift
   describe('Controller: SketchCtrl', function () {
 
     // load the controller's module
-    beforeEach(module('index'));
+    beforeEach(module('index.controllers.SketchController'));
 
     // Initialize the controller and a mock scope
     var scope;
