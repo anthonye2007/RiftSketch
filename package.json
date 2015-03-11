@@ -11,6 +11,6 @@
     "karma-phantomjs-launcher": "~0.1.4"
   },
   "scripts": {
-    "test": "karma start test/karma.conf.js"
+    "test": "node_modules/karma/bin/karma start test/karma.conf.js"
   }
 }
