@@ -9,5 +9,8 @@
     "requirejs": "~2.1.16",
     "karma": "~0.12.31",
     "karma-phantomjs-launcher": "~0.1.4"
+  },
+  "scripts": {
+    "test": "karma start test/karma.conf.js"
   }
 }
