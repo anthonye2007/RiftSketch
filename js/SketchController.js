@@ -1,11 +1,3 @@
-// PhantomJS doesn't support bind yet
-Function.prototype.bind = Function.prototype.bind || function (thisp) {
-    var fn = this;
-      return function () {
-            return fn.apply(thisp, arguments);
-              };
-};
-
 define([
   'angular',
   'leap',
@@ -29,6 +21,14 @@ function (
   Sketch
 ) {
   'use strict';
+
+// PhantomJS doesn't support bind yet
+Function.prototype.bind = Function.prototype.bind || function (thisp) {
+    var fn = this;
+      return function () {
+            return fn.apply(thisp, arguments);
+              };
+};
 
   angular.module('angularSampleApp.controllers.SketchController', [])
     .controller('SketchController', ['$scope', function($scope) {
