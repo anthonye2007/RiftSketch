@@ -29,6 +29,10 @@ function (
 
       var setupVideoPassthrough = function () {
         navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+	if (!navigator.getUserMedia) {
+	  // getUserMedia not implemented in phantomjs
+          return;
+	}
         navigator.getUserMedia(
           {video: true},
           function (stream) {
