@@ -17,7 +17,6 @@ require.config({
   baseUrl: '/base',
 
   paths: {
-    'angularSampleApp': '/base/js/index',
     'leap': '/base/lib/leap-0.6.3',
     'oauth': '/base/bower_components/oauth-js/dist/oauth',
     'lodash': '/base/bower_components/lodash/dist/lodash',
