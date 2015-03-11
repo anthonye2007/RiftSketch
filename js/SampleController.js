@@ -3,7 +3,6 @@ define(['angular'], function (angular) {
 
   angular.module('sampleApp.controllers.SampleController', [])
     .controller('SampleController', ['$scope', function ($scope) {
-      console.log('  Here!   ');
     }]);
 
 });

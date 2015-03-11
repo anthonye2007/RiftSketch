@@ -1,45 +1,10 @@
-var shim = function(){
-    console.log("in shim");
-        var isFunction = function(o) {
-          return typeof o == 'function';
-        };
-
-        var bind,
-          slice = [].slice,
-          proto = Function.prototype,
-          featureMap;
-
-        featureMap = {
-          'function-bind': 'bind'
-        };
-
-        function has(feature) {
-          var prop = featureMap[feature];
-          return isFunction(proto[prop]);
-        }
-
-        // check for missing features
-	console.log('before bind');
-        if (!has('function-bind')) {
-          // adapted from Mozilla Developer Network example at
-          // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind
-          bind = function bind(obj) {
-            console.log('in bind');
-            var args = slice.call(arguments, 1),
-              self = this,
-              nop = function() {
-              },
-              bound = function() {
-                return self.apply(this instanceof nop ? this : (obj || {}), args.concat(slice.call(arguments)));
+// PhantomJS doesn't support bind yet
+Function.prototype.bind = Function.prototype.bind || function (thisp) {
+    var fn = this;
+      return function () {
+            return fn.apply(thisp, arguments);
               };
-            nop.prototype = this.prototype || {}; // Firefox cries sometimes if prototype is undefined
-            bound.prototype = new nop();
-            return bound;
-          };
-          proto.bind = bind;
-        }
 };
-shim();
 
 define([
   'angular',
@@ -331,7 +296,8 @@ function (
           this.domTextArea.selectionStart = this.domTextArea.selectionEnd = 0;
         }.bind(this));
         $domTextArea.focus();
-        this.domTextArea.selectionStart = this.domTextArea.selectionEnd = 0;
+        this.domTextArea.selectionStart = 0;
+        this.domTextArea.selectionEnd = 0;
         this.riftSandbox = new RiftSandbox(
           window.innerWidth, window.innerHeight, this.domTextArea,
           function (err) {
