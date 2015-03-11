@@ -1,10 +1,10 @@
-define(['angular', 'angularMocks', 'RiftSketch'], function (angular, mocks, riftSketch) {
+define(['angular', 'angularMocks', 'angularSampleApp'], function (angular, mocks, riftSketch) {
   'use strict';
 
   describe('Controller: SketchCtrl', function () {
 
     // load the controller's module
-    beforeEach(module('index.controllers.SketchController'));
+    beforeEach(module('angularSampleApp.controllers.SketchController'));
 
     // Initialize the controller and a mock scope
     var scope;

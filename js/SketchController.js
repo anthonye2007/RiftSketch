@@ -22,7 +22,7 @@ function (
 ) {
   'use strict';
 
-  angular.module('index.controllers.SketchController', [])
+  angular.module('angularSampleApp.controllers.SketchController', [])
     .controller('SketchController', ['$scope', function($scope) {
       // TODO: lol, this controller is out of control. Refactor and maybe actually
       // use Angular properly.

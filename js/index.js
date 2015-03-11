@@ -23,8 +23,8 @@ function (
 ) {
   'use strict';
 
-  return angular.module('index', [
-    'index.controllers.SketchController',
+  return angular.module('angularSampleApp', [
+    'angularSampleApp.controllers.SketchController',
     'Leap',
     'OAuth',
     'RiftSandbox',

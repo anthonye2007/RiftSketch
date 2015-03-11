@@ -17,18 +17,18 @@ require.config({
   baseUrl: '/base',
 
   paths: {
-    'RiftSketch': 'js/index',
-    leap: 'lib/leap-0.6.3',
-    oauth: 'bower_components/oauth-js/dist/oauth',
-    lodash: 'bower_components/lodash/dist/lodash',
-    mousetrap: 'lib/mousetrap',
-    Three: 'lib/ThreeJS/Three',
-    VRControls: 'lib/VRControls',
-    VREffect: 'lib/VREffect',
-    RiftSandbox: 'js/RiftSandbox',
-    TextArea: 'js/TextArea',
-    File: 'js/File',
-    Sketch: 'js/Sketch',
+    'angularSampleApp': '/base/js/index',
+    'leap': '/base/lib/leap-0.6.3',
+    'oauth': '/base/bower_components/oauth-js/dist/oauth',
+    'lodash': '/base/bower_components/lodash/dist/lodash',
+    'mousetrap': '/base/lib/mousetrap',
+    'Three': '/base/lib/ThreeJS/Three',
+    'VRControls': '/base/lib/VRControls',
+    'VREffect': '/base/lib/VREffect',
+    'RiftSandbox': '/base/js/RiftSandbox',
+    'TextArea': '/base/js/TextArea',
+    'File': '/base/js/File',
+    'Sketch': '/base/js/Sketch',
     'angularMocks': '/base/bower_components/angular-mocks/angular-mocks',
     'angular': '/base/bower_components/angular/angular'
   },
@@ -36,11 +36,11 @@ require.config({
   shim: {
     'angular': { exports: 'angular' },
     'angularMocks': { deps: ['angular'] },
-    leap: {exports: 'Leap'},
-    oauth: {exports: 'OAuth'},
-    Three: {exports: 'THREE'},
-    VRControls: {deps: ['Three']},
-    VREffect: {deps: ['Three']}
+    'leap': {exports: 'Leap'},
+    'oauth': {exports: 'OAuth'},
+    'Three': {exports: 'THREE'},
+    'VRControls': {deps: ['Three']},
+    'VREffect': {deps: ['Three']}
   },
 
   // dynamically load all test files
