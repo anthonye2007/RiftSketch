@@ -2,6 +2,7 @@ Thumbs.db
 bower_components
 node_modules
 
+coverage
 # vim
 *.swp
 log
