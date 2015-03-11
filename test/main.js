@@ -17,6 +17,7 @@ require.config({
   baseUrl: '/base',
 
   paths: {
+    'RiftSketch': 'js/index',
     leap: 'lib/leap-0.6.3',
     oauth: 'bower_components/oauth-js/dist/oauth',
     lodash: 'bower_components/lodash/dist/lodash',

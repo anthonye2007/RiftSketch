@@ -1,4 +1,4 @@
-define(['angular', 'angularMocks', 'js/index'], function (angular, mocks, index) {
+define(['angular', 'angularMocks', 'RiftSketch'], function (angular, mocks, riftSketch) {
   'use strict';
 
   describe('Controller: SketchCtrl', function () {
