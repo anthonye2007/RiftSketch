@@ -30,7 +30,7 @@ require.config({
     'File': '/base/js/File',
     'Sketch': '/base/js/Sketch',
     'angularMocks': '/base/bower_components/angular-mocks/angular-mocks',
-    'angular': '/base/bower_components/angular/angular'
+    'angular': '/base/lib/angular/angular'
   },
 
   shim: {
