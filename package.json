@@ -9,6 +9,17 @@
     "requirejs": "~2.1.16",
     "karma": "~0.12.31",
     "karma-coverage": "~0.2.7",
-    "phantomjs": "~1.9.16"
+    "phantomjs": "~1.9.16",
+    "karma-phantomjs-launcher": "~0.1.4"
+  },
+  "scripts": {
+    "test": "node_modules/karma/bin/karma start test/karma.conf.js",
+    "pretest": "node_modules/jshint/bin/jshint js/"
+  },
+  "jshintConfig": {
+    "bitwise": true,
+    "curly": true,
+    "maxdepth": 3
+>>>>>>> 6670b7618d978895bb87f3619be4e33efebced10
   }
 }

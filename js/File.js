@@ -3,6 +3,7 @@ define([
 function (
 ) {
   var constr = function (name, contents) {
+    /*jshint ignore:start */
     this.name = name || 'Example';
     var defaultContents = ('\
       var t3 = THREE;\n\
@@ -29,6 +30,7 @@ function (
         cube.rotation.y = i;\n\
       };\
     '.replace(/\n {8}/g, '\n').replace(/^\s+|\s+$/g, ''));
+    /* jshint ignore:end */
     this.contents = contents === undefined ? defaultContents : contents;
     this.selected = true;
   };
