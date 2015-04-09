@@ -4,7 +4,7 @@ FROM ubuntu
 #COPY . /src
 
 RUN apt-get update
-RUN apt-get install -y npm openssh-server
+RUN apt-get install -y npm openssh-server git libfontconfig
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 #RUN cd /src
