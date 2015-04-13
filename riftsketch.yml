@@ -1,0 +1,21 @@
+---
+- hosts: droplets
+  tasks:
+
+    - name: Load docker image
+      command: docker pull anthonye2007/riftsketch
+
+    - name: Kill previous image
+      command: docker kill riftsketch
+
+    - name: Run docker image on port 80
+      command: docker run -d -ti -p 80:8080 --name=riftsketch anthonye2007/riftsketch
+
+#    - name: Run docker riftsketch image
+#      docker:
+#        name: riftsketch
+#        image: anthonye2007/riftsketch
+#        state: reloaded
+#        pull: always
+#        ports:
+#        - "80:8080"
