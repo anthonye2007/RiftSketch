@@ -71,4 +71,3 @@ I extended the analysis tool to use its existing options for requiring:
   * curly braces for all blocks, even single statement loops
   * max of 3 nested statements 
 
-

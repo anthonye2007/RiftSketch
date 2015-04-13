@@ -1,3 +1,2 @@
 npm install
-bower install
-npm test
+bower install --allow-root --config.interactive=false
