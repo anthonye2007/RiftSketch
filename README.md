@@ -74,7 +74,7 @@ I extended the analysis tool to use its existing options for requiring:
 ### Deploy
 Every time a commit passes the build it gets uploaded to a production server.
 
-The build server is implemented with Jenkins (see job's config file at `jenkins/RiftSketch.xml`). After each successful build, Jenkins will tell Ansible to run a playbook that deploys to production. This file is `production.yml`.
+The build server is implemented with Jenkins (see job's config file at `jenkins/RiftSketch.xml`). After each successful build, Jenkins will tell Ansible to run a playbook that deploys to production. This file is `ansible/production.yml`.
 
 I use NewRelic to monitor server health, specifically CPU usage, and percentage of memory used.
 ![NewRelic screenshot](images/NewRelic)
