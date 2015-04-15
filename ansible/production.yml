@@ -1,0 +1,26 @@
+---
+- hosts: droplets
+  tasks:
+    - name: Installs git
+      apt: pkg=git state=installed update_cache=true
+
+    - name: Install nodejs
+      apt: pkg=nodejs-legacy state=installed update_cache=true
+
+    - name: Install npm
+      apt: pkg=npm state=installed update_cache=true
+
+    - name: Install bower globally
+      command: npm install -g bower
+
+    - name: Install http-server globally
+      command: npm install -g http-server
+
+    - git: repo=https://github.com/anthonye2007/RiftSketch.git
+           dest=/var/app/RiftSketch
+
+    - name: Build RiftSketch
+      command: /bin/bash build.sh chdir=/var/app/RiftSketch
+
+    - name: Start HTTP server
+      command: /bin/bash serve.sh 8080 chdir=/var/app/RiftSketch
