@@ -4,16 +4,17 @@
     "jshint": "~2.6.3"
   },
   "devDependencies": {
-    "karma-requirejs": "~0.2.2",
-    "karma-jasmine": "~0.3.5",
-    "requirejs": "~2.1.16",
     "karma": "~0.12.31",
     "karma-coverage": "~0.2.7",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-jasmine": "~0.3.5",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "karma-requirejs": "~0.2.2",
     "phantomjs": "~1.9.16",
-    "karma-phantomjs-launcher": "~0.1.4"
+    "requirejs": "~2.1.16"
   },
   "scripts": {
-    "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
+    "test": "node node_modules/karma/bin/karma start --browsers Firefox test/karma.conf.js",
     "pretest": "node node_modules/jshint/bin/jshint js/"
   },
   "jshintConfig": {
