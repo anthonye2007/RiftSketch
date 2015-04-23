@@ -107,14 +107,17 @@ angular.module('index', [])
     // use Angular properly.
 
     navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-    navigator.getUserMedia(
-      {video: true},
-      function (stream) {
-        var monitor = document.getElementById('monitor');
-        monitor.src = window.URL.createObjectURL(stream);
-      },
-      function () {}
-    );
+    if (navigator.getUserMedia !== null  || navigator.getUserMedia !== undefined)
+    {
+      navigator.getUserMedia(
+        {video: true},
+        function (stream) {
+          var monitor = document.getElementById('monitor');
+          monitor.src = window.URL.createObjectURL(stream);
+        },
+        function () {}
+      );
+    }
 
     var autosave = localStorage.getItem('autosave');
     var files;
