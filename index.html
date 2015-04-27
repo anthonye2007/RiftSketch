@@ -60,6 +60,30 @@
         </div>
       </div>
     </div>
+    
+    <script type="text/javascript">
+    var calculateFrameRate = function() {
+
+      var oldFrames = window.mozPaintCount;
+      console.log("old: " + oldFrames);
+      var newFrames = null;
+      var seconds = 1.0;
+      var msPerSec = 1000;
+      var millis = seconds * msPerSec;
+      
+      setTimeout(function() {
+        newFrames = window.mozPaintCount;
+        console.log("new: " + newFrames);
+        frames = newFrames - oldFrames;
+
+        fps = frames / seconds;
+
+        console.log("Frames per second is: " + fps);
+      }, millis)
+
+      
+    }
+    </script>
     <script data-main="js/index.js" src="bower_components/requirejs-bower/require.js"></script>
   </body>
 </html>
