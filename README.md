@@ -80,3 +80,14 @@ I use NewRelic to monitor server health, specifically CPU usage, and percentage 
 ![NewRelic screenshot](images/NewRelic.png)
 
 The production server here is a Digital Ocean droplet, accessible [here](http://104.131.26.211:8080/).
+
+### Special
+In order to properly display UI elements, RiftSketch needs to be run on a specific build of FireFox Nightly with WebVR enabled. Moreover, RiftSketch requires WebGL rendering in order to even start, which requires graphics processing. This presents a problem when teams want to run integration tests on an automated fashion.
+
+My attempt at a solution is to use a Windows AWS instance that uses virtualized graphics cards from NVIDIA. This enables remote integration tests. Finding this AWS approach is a useful contribution, since it took me forever to figure out how I could even run WebGL on a remote server.  Additionally, once the server is running, WebGL will be disabled if using conventional methods of communication (ssh or Remote Desktop). Thus, I had to use a VNC program such as Team Viewer to even run the app since WebGL can't be transferred over the RDP protocol.
+
+My approach was for GitHub to notify Jenkins after a developer pushed a commit. Jenkins then built the code and ran unit tests. If the unit tests passed, then Jenkins would start a specific Windows AWS instance, run the integration tests, report the results back, and stop the instance. However, configuration issues were rampant and have prevented me from finishing this.
+
+One problem was that typical browser automation tools only work with standard versions of FireFox and are unable to parse the specific build needed. This led me to simplify my testing approach and I realized that most of my testing use cases could be covered with a simple measurement of frame rate.  If the frame rate is 0, then that means an error occurred and the app was unable to start. If the frame rate is roughly 60, then it is running fine (at least on the surface). If the frame rate is significantly below 60, then it was at least able to run, but something has changed in a bad way.
+
+This frame rate can be measured and reported using a remote logging service such as Loggly, which is useful to see how the frame rate changes as the code changes.
